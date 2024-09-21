@@ -136,7 +136,7 @@ export default {
   padding: 15px;
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
-  text-align: center;
+  text-align: start;
 }
 
 h3 {
@@ -146,5 +146,6 @@ h3 {
 
 p {
   font-size: 14px;
+  color: #cccccc;
 }
 </style>
