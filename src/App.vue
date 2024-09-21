@@ -1,151 +1,288 @@
 <template>
-  <div class="app-container">
-    <header class="header">
-      <h1>Mini Blog about Animals</h1>
-      <nav class="nav">
-        <a href="#">Horse</a>
-        <a href="#">Tiger</a>
-        <a href="#">Giraffe</a>
-        <a href="#">Elephant</a>
-        <a href="#">Fox</a>
-      </nav>
-    </header>
+  <header>
+    <h3>Mini Blog about Animals</h3>
+    <nav>
+      <ul>
+        <li><a href="#">Horse</a></li>
+        <li><a href="#">Tiger</a></li>
+        <li><a href="#">Giraffe</a></li>
+        <li><a href="#">Elephant</a></li>
+        <li><a href="#">Fox</a></li>
+        <li>
+          <a href="#"
+            ><img
+              class="searchIcon"
+              src="https://i.ibb.co.com/3Y0jFGn/free-icon-search-magnifier-symbol-of-interface-51658.png"
+          /></a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-    <section class="blog-section">
-      <div
-        class="blog-card"
-        v-for="(blog, index) in blogs"
-        :key="index"
-        :class="{ 'blog-card-large': index === 2 }"
-      >
-        <img :src="blog.image" class="blog-image" />
-        <div class="blog-content">
-          <h3>{{ blog.title }}</h3>
-          <p>{{ blog.date }}</p>
-        </div>
-      </div>
-    </section>
-  </div>
+  <main>
+    <div class="blog-posts">
+      <ul class="posts">
+        <ul class="firstColumn">
+          <li class="container">
+            <div class="small">
+              <img src="./assets/images/spirit.jpeg" />
+            </div>
+            <div class="bottom-left">Horse</div>
+            <div class="bottom-left2">horse horse horse</div>
+          </li>
+          <li class="container">
+            <div class="small">
+              <img src="./assets/images/tgr.jpeg" />
+            </div>
+            <div class="bottom-left">Tiger</div>
+            <div class="bottom-left2">tiger tiger tiger</div>
+          </li>
+        </ul>
+
+        <ul class="secondColumn">
+          <li class="container">
+            <div class="large">
+              <img class="large" src="./assets/images/giraffe.jpeg" />
+            </div>
+            <div class="travelButton">Travel</div>
+            <div class="foodButton">Food</div>
+            <div class="bottom-left">Giraffe</div>
+            <div class="bottom-left2">giraffe giraffe giraffe</div>
+          </li>
+        </ul>
+
+        <ul class="thirdColumn">
+          <li class="container">
+            <div class="small">
+              <img src="./assets/images/elephant.jpeg" />
+            </div>
+            <div class="bottom-left">Elephant</div>
+            <div class="bottom-left2">elephant elephant elephant</div>
+          </li>
+          <li class="container">
+            <div class="small">
+              <img src="./assets/images/fox.jpeg" />
+            </div>
+            <div class="bottom-left">Fox</div>
+            <div class="bottom-left2">fox fox fox</div>
+          </li>
+        </ul>
+      </ul>
+    </div>
+  </main>
 </template>
 
-<script>
-import horseImage from "@/assets/images/spirit.jpeg";
-import tigerImage from "@/assets/images/tgr.jpeg";
-import giraffeImage from "@/assets/images/giraffe.jpeg";
-import elephantImage from "@/assets/images/elephant.jpeg";
-import foxImage from "@/assets/images/fox.jpeg";
-
-export default {
-  data() {
-    return {
-      blogs: [
-        {
-          image: horseImage,
-          title: "Horse",
-          date: "July 2, 2018",
-        },
-        {
-          image: tigerImage,
-          title: "Tiger",
-          date: "March 19, 2019",
-        },
-        {
-          image: giraffeImage,
-          title: "Giraffe",
-          date: "April 25, 2010",
-        },
-        {
-          image: elephantImage,
-          title: "Elephant",
-          date: "September 13, 2003",
-        },
-        {
-          image: foxImage,
-          title: "Fox",
-          date: "December 29, 2021",
-        },
-      ],
-    };
-  },
-};
-</script>
+<script></script>
 
 <style scoped>
-.app-container {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-.header {
-  background-color: #f9f9f9;
-  padding: 20px;
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ddd;
+  background-color: rgb(205, 150, 1);
+  border-radius: 4px;
+  padding: 4px;
 }
 
-.header h1 {
-  font-size: 28px;
+header ul {
+  display: flex;
+  align-items: center;
 }
 
-.nav a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: #555;
+.searchIcon {
+  width: 16px;
+  height: 16px;
+  margin-top: 5px;
 }
 
-.nav a:hover {
-  color: #000;
+nav li {
+  display: inline;
+  margin-right: 20px;
 }
 
-.blog-section {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 20px;
-}
-
-.blog-card {
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: 0.3s;
-  position: relative;
-}
-
-.blog-card:hover {
-  transform: scale(1.05);
-}
-
-.blog-card-large {
-  grid-row: span 2;
-}
-
-.blog-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.blog-content {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 15px;
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  text-align: start;
+nav li a {
+  color: rgb(255, 255, 255);
 }
 
 h3 {
-  margin: 5px 0;
-  font-size: 18px;
+  color: white;
 }
 
-p {
+nav ul a {
+  text-decoration: none;
+}
+
+main {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-left: 80px;
+  margin-top: 80px;
+}
+
+.blog-posts {
+  display: flex;
+  width: 80%;
+}
+
+.posts {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.posts ul {
+  padding: 0;
+  margin: 0;
+  width: 32%;
+}
+
+.posts li {
+  list-style: none;
+  padding: 5px;
+  margin: 5px;
+}
+
+.container {
+  position: relative;
+}
+
+.bottom-left {
+  position: absolute;
+  font-size: 19px;
+  font-weight: 300;
+  color: white;
+  bottom: 40px;
+  left: 20px;
+  z-index: 2;
+}
+
+.bottom-left2 {
+  position: absolute;
+  font-size: 15px;
+  font-weight: 300;
+  color: rgb(201, 201, 201);
+  bottom: 20px;
+  left: 20px;
+  z-index: 2;
+}
+
+.small {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: relative;
+}
+
+.small:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  border-radius: 3px;
+  z-index: 2;
+}
+
+.large {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.large:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  border-radius: 3px;
+  z-index: 2;
+}
+
+
+.travelButton {
+  position: absolute;
   font-size: 14px;
-  color: #cccccc;
+  font-weight: 300;
+  color: rgb(201, 201, 201);
+  background-color: rgb(255, 22, 22);
+  padding: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+  bottom: 80px;
+  left: 20px;
+}
+
+.foodButton {
+  position: absolute;
+  font-size: 14px;
+  font-weight: 300;
+  color: rgb(201, 201, 201);
+  background-color: rgb(1, 128, 255);
+  padding: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+  bottom: 80px;
+  left: 80px;
+}
+
+.firstColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.firstColumn li {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.secondColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.secondColumn li {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thirdColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.thirdColumn li {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.posts ul {
+  width: 100%;
+  height: 100%;
+}
+
+.posts img {
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  object-fit: cover;
 }
 </style>
